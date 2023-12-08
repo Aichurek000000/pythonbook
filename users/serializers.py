@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Mentor
 
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
