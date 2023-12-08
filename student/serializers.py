@@ -8,7 +8,7 @@ class StudentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         # fields = "__all__"
-        fields = ['user', 'phone_number', 'programming_language', 'answer_count']
+        fields = ['phone_number', 'programming_language', 'answer_count']
     def get_answer_count(self, student_object):
         return student_object.answer_list.count()
         

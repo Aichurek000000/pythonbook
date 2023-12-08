@@ -39,7 +39,7 @@ class StudentDetailAPIView(APIView):
         
 class StudentsView(APIView):
     def get(self, request, *args, **kwargs):
-        student_list = Task.objects.all()
+        student_list = Student.objects.all()
         serializer = StudentsSerializer(student_list, many=True)
         return Response(serializer.data)
     
