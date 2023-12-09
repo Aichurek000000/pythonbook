@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.generics import RetrieveAPIView, RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from task.models import *
 from task.serializers import *
 
@@ -72,7 +73,14 @@ class AnswerDetailAPIView(APIView):
     def delete(sdelf, request, *args, **kwargs):
         answer_object= Answer.objects.get(pk=kwargs.get("pk"))  
         answer_object.delete()
-    
 
+class TaskGenericDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+class TasksGenericView(ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskCreateSerializer
+    
 
         

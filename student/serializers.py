@@ -12,16 +12,29 @@ class StudentsSerializer(serializers.ModelSerializer):
     def get_answer_count(self, student_object):
         return student_object.answer_list.count()
         
-class StudentCreateSerializer(serializers.ModelSerializer):
+class StudentsCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = "__all__"
-class StudentUpdateSerializer(serializers.ModelSerializer):
+class StudentsUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['phone_number', 'programming_language']
+        fields = "__all__"
+class StudentsDeleteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"
 
-class StudentDeleteSerializer(serializers.ModelSerializer):
+class StudentsGenericViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"
+class StudentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"
+
+class StudentsGenericDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = "__all__"
